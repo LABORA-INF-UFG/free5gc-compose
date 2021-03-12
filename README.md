@@ -126,6 +126,6 @@ Para verificar as imagens disponíveis em nosso containers execute:
 $ sudo docker images
 ```
 
-![my5gcore-compose](my5gcore.jpg)
+![my5gcore-compose](img/my5gcore.jpg)
 
 Figura 1: Funções do My5GCore
