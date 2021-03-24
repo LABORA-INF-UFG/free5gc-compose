@@ -1,6 +1,6 @@
 # My5GCore Compose
 
-Esse repositório é uma versão do my5g Core executada através de containers e automatizada via compose. Esse projeto é baseado no [Free4gC Compose](https://github.com/free5gc/free5gc-compose).
+Esse repositório é uma versão do my5gCore executada através de containers e automatizada via compose. Esse projeto é baseado no [Free5gC Compose](https://github.com/free5gc/free5gc-compose).
 
 
 
@@ -87,7 +87,7 @@ $ docker-compose --version
 
 ## Iniciando My5g Core
 
-Como precisando criar uma interface de tunel, necessitamos criar um containger com permissões de root.
+Como precisamos criar uma interface de tunel, necessitamos criar um containger com permissões de root.
 
 Dowload dos arquivos do núcleo:
 
