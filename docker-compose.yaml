@@ -1,12 +1,9 @@
-version: '3.8'
+version: '3.0'
 
 services:
   my5gcore-upf1:
     container_name: upf
-    build:
-      context: ./nf_upf
-      args:
-        DEBUG_TOOLS: "true"
+    image: thiagogmta/nf_upf
     command: bash -c "./router-upf.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
       - "${CONFIG}/upfcfg.yaml:/my5Gcore/config/upfcfg.yaml"
@@ -41,10 +38,7 @@ services:
 
   my5gcore-nrf:
     container_name: nrf
-    build:
-      context: ./nf_nrf
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_nrf
     command: ./nrf -nrfcfg ../config/nrfcfg.conf
     expose:
       - "29510"
@@ -63,10 +57,7 @@ services:
 
   my5gcore-amf:
     container_name: amf
-    build:
-      context: ./nf_amf
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_amf
     command: ./amf -amfcfg ../config/amfcfg.conf
     expose:
       - "29518"
@@ -84,10 +75,7 @@ services:
 
   my5gcore-ausf:
     container_name: ausf
-    build:
-      context: ./nf_ausf
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_ausf
     command: ./ausf -ausfcfg ../config/ausfcfg.conf
     expose:
       - "29509"
@@ -105,10 +93,7 @@ services:
 
   my5gcore-nssf:
     container_name: nssf
-    build:
-      context: ./nf_nssf
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_nssf
     command: ./nssf -nssfcfg ../config/nssfcfg.conf
     expose:
       - "29531"
@@ -126,10 +111,7 @@ services:
 
   my5gcore-pcf:
     container_name: pcf
-    build:
-      context: ./nf_pcf
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_pcf
     command: ./pcf -pcfcfg ../config/pcfcfg.conf
     expose:
       - "29507"
@@ -147,10 +129,7 @@ services:
 
   my5gcore-smf:
     container_name: smf
-    build:
-      context: ./nf_smf
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_smf
     command: ./smf -smfcfg ../config/smfcfg.conf -uerouting ../config/uerouting.yaml
     expose:
       - "29502"
@@ -172,10 +151,7 @@ services:
 
   my5gcore-udm:
     container_name: udm
-    build:
-      context: ./nf_udm
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_udm
     command: ./udm -udmcfg ../config/udmcfg.conf
     expose:
       - "29503"
@@ -194,10 +170,7 @@ services:
 
   my5gcore-udr:
     container_name: udr
-    build:
-      context: ./nf_udr
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/nf_udr
     command: ./udr -udrcfg ../config/udrcfg.conf
     expose:
       - "29504"
@@ -219,10 +192,7 @@ services:
 
   my5gcore-n3iwf:
     container_name: n3iwf
-    build:
-      context: ./nf_n3iwf
-      args:
-        DEBUG_TOOLS: "true"
+    image: thiagogmta/nf_n3iwf
     command: sh -c "./n3iwf-ipsec.sh && ./n3iwf -n3iwfcfg ../config/n3iwfcfg.conf"
     ports:
       - "20000:20000"
@@ -247,10 +217,7 @@ services:
 
   my5gcore-webui:
     container_name: webui
-    build:
-      context: ./webui
-      args:
-        DEBUG_TOOLS: "false"
+    image: thiagogmta/webui
     command: ./webui -free5gccfg ../config/free5GC.conf --webuicfg ../config/webuicfg.conf
     volumes:
       - ${CONFIG}/webuicfg.conf:/my5Gcore/config/webuicfg.conf
